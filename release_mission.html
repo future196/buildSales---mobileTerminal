@@ -1,0 +1,394 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<script src="js/mui.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/mui.picker.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mui.poppicker.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mui.dtpicker.css"/>
+	    <script src="js/mui.picker.js"></script>
+		<script src="js/mui.poppicker.js"></script>
+		<script src="js/mui.dtpicker.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">发布任务</h1>
+		    
+		</header>
+		<div class="mui-content">
+			<ul class="mui-table-view">
+			    <li class="mui-table-view-cell" style="display: table;width: 100%;">
+			       <div id="unify" onclick="release_type(this.id)" style="display: table-cell;text-align: center;border-right: 1px solid lightgrey;color: darkorange;">统一发布</div>
+			       <div id="assign" onclick="release_type(this.id)" style="display: table-cell;text-align: center;color: grey;">指定发布</div>
+			    </li>    
+			</ul>
+			
+			<!--统一发布要显示的内容-->
+			<div id="unify_content">
+				<form style="margin-top:20px;">
+					<table border="0" style="text-align: center;table-layout:fixed" width="100%" cellspacing="" cellpadding="">
+					<tr>
+						<th>日期</th>
+						<td colspan="2">
+							<div style="padding:10px;">
+								<span style="background: lightgrey;padding:5px;">
+						    		<span id="date_picker" onclick="datepicker(this)">0000-00-00</span>
+						    	</span> 
+							</div>
+							
+						</td>
+					</tr>
+					<tr>
+						<th>成交数</th>
+						<td colspan="2">
+							<input type="number" style="background:white;border-radius:5px;width:95%">
+						</td>
+					</tr>
+					<tr>
+						<th>派单数/张</th>
+						<td colspan="2">
+							<input type="number" style="background:white;border-radius:5px;width:95%">
+						</td>
+					</tr>
+					<tr>
+						<th>call客/台</th>
+						<td colspan="2">
+							<input type="number" style="background:white;border-radius:5px;width:95%">
+						</td>
+					</tr>
+					<tr>
+						<th>收客/台</th>
+						<td colspan="2">
+							<input type="number" style="background:white;border-radius:5px;width:95%">
+						</td>
+					</tr>
+					
+					
+					<!--2019-05-07添加-->
+					<tr>
+						<th>任务期限</th>
+						<td colspan="2">
+							<select style="background:white;border-radius:5px;width:95%">
+								<option>7天</option>
+								<option>14天</option>
+								<option>30天</option>
+							</select>
+						</td>
+					</tr>
+					
+					
+					<tr>
+						<th>备注</th>
+						<td colspan="2">
+							<textarea style="background:white;border-radius:5px;width:95%"></textarea>
+						</td>
+					</tr>
+					</table>
+					
+
+			   </form>
+			</div>
+			
+			<!--指定发布要显示的内容-->
+			<div id="assign_content" hidden="hidden">
+				<ul class="mui-table-view"> 
+				<div style="width:30px;height:40px;padding-left:10px;float:left">
+					<input type="checkbox" style="vertical-align: middle;width:20px;height: 40px;" name="" id="" value="" />
+				</div>
+		        <li class="mui-table-view-cell mui-collapse">
+		            <a class="mui-navigate-right" href="#">张三</a>
+		            <div class="mui-collapse-content">
+		                <table border="0" style="text-align: center;table-layout:fixed" width="100%" cellspacing="" cellpadding="">
+					<tr>
+						<th>日期</th>
+						<td colspan="2">
+							<div style="padding:10px;">
+								<span style="background: lightgrey;padding:5px;">
+						    		<span id="date_picker" onclick="datepicker(this)">0000-00-00</span>
+						    	</span> 
+							</div>
+							
+						</td>
+					</tr>
+					<tr>
+						<th>成交数</th>
+						<td colspan="2">
+							<input type="number" style="background:white;border-radius:5px;width:95%">
+						</td>
+					</tr>
+					<tr>
+						<th>派单数/张</th>
+						<td colspan="2">
+							<input type="number" style="background:white;border-radius:5px;width:95%">
+						</td>
+					</tr>
+					<tr>
+						<th>call客/台</th>
+						<td colspan="2">
+							<input type="number" style="background:white;border-radius:5px;width:95%">
+						</td>
+					</tr>
+					<tr>
+						<th>收客/台</th>
+						<td colspan="2">
+							<input type="number" style="background:white;border-radius:5px;width:95%">
+						</td>
+					</tr>
+					
+					
+					<!--2019-05-07添加-->
+					<tr>
+						<th>任务期限</th>
+						<td colspan="2">
+							<select style="background:white;border-radius:5px;width:95%">
+								<option>7天</option>
+								<option>14天</option>
+								<option>30天</option>
+							</select>
+						</td>
+					</tr>
+					
+					
+					<tr>
+						<th>备注</th>
+						<td colspan="2">
+							<textarea style="background:#f7f7f7;border-radius:5px;width:95%"></textarea>
+						</td>
+					</tr>
+					</table>
+		            </div>
+		        </li>
+		    </ul>
+		    <ul class="mui-table-view"> 
+				<div style="width:30px;height:40px;padding-left:10px;float:left">
+					<input type="checkbox" style="vertical-align: middle;width:20px;height: 40px;" name="" id="" value="" />
+				</div>
+		        <li class="mui-table-view-cell mui-collapse">
+		            <a class="mui-navigate-right" href="#">李四</a>
+		            <div class="mui-collapse-content">
+		                <table border="0" style="text-align: center;table-layout:fixed" width="100%" cellspacing="" cellpadding="">
+					<tr>
+						<th>日期</th>
+						<td colspan="2">
+							<div style="padding:10px;">
+								<span style="background: lightgrey;padding:5px;">
+						    		<span id="date_picker" onclick="datepicker(this)">0000-00-00</span>
+						    	</span> 
+							</div>
+							
+						</td>
+					</tr>
+					<tr>
+						<th>成交数</th>
+						<td colspan="2">
+							<input type="number" style="background:white;border-radius:5px;width:95%">
+						</td>
+					</tr>
+					<tr>
+						<th>成交数</th>
+						<td colspan="2">
+							<input type="number" style="background:white;border-radius:5px;width:95%">
+						</td>
+					</tr>
+					<tr>
+						<th>派单数/张</th>
+						<td colspan="2">
+							<input type="number" style="background:white;border-radius:5px;width:95%">
+						</td>
+					</tr>
+					<tr>
+						<th>call客/台</th>
+						<td colspan="2">
+							<input type="number" style="background:white;border-radius:5px;width:95%">
+						</td>
+					</tr>
+					<tr>
+						<th>收客/台</th>
+						<td colspan="2">
+							<input type="number" style="background:white;border-radius:5px;width:95%">
+						</td>
+					</tr>
+					
+					
+					<!--2019-05-07添加-->
+					<tr>
+						<th>任务期限</th>
+						<td colspan="2">
+							<select style="background:#f7f7f7;border-radius:5px;width:95%">
+								<option>7天</option>
+								<option>14天</option>
+								<option>30天</option>
+							</select>
+						</td>
+					</tr>
+					
+					
+					<tr>
+						<th>备注</th>
+						<td colspan="2">
+							<textarea style="background:white;border-radius:5px;width:95%"></textarea>
+						</td>
+					</tr>
+					</table>
+		            </div>
+		        </li>
+		    </ul>
+		    <ul class="mui-table-view"> 
+				<div style="width:30px;height:40px;padding-left:10px;float:left">
+					<input type="checkbox" style="vertical-align: middle;width:20px;height: 40px;" name="" id="" value="" />
+				</div>
+		        <li class="mui-table-view-cell mui-collapse">
+		            <a class="mui-navigate-right" href="#">王五</a>
+		            <div class="mui-collapse-content">
+		                <table border="0" style="text-align: center;table-layout:fixed" width="100%" cellspacing="" cellpadding="">
+					<tr>
+						<th>日期</th>
+						<td colspan="2">
+							<div style="padding:10px;">
+								<span style="background: lightgrey;padding:5px;">
+						    		<span id="date_picker" onclick="datepicker(this)">0000-00-00</span>
+						    	</span> 
+							</div>
+							
+						</td>
+					</tr>
+					<tr>
+						<th>成交数</th>
+						<td colspan="2">
+							<input type="number" style="background:white;border-radius:5px;width:95%">
+						</td>
+					</tr>
+					<tr>
+						<th>派单数/张</th>
+						<td colspan="2">
+							<input type="number" style="background:white;border-radius:5px;width:95%">
+						</td>
+					</tr>
+					<tr>
+						<th>call客/台</th>
+						<td colspan="2">
+							<input type="number" style="background:white;border-radius:5px;width:95%">
+						</td>
+					</tr>
+					<tr>
+						<th>收客/台</th>
+						<td colspan="2">
+							<input type="number" style="background:white;border-radius:5px;width:95%">
+						</td>
+					</tr>
+					
+					
+					<!--2019-05-07添加-->
+					<tr>
+						<th>任务期限</th>
+						<td colspan="2">
+							<select style="background:#f7f7f7;border-radius:5px;width:95%">
+								<option>7天</option>
+								<option>14天</option>
+								<option>30天</option>
+							</select>
+						</td>
+					</tr>
+					
+					
+					<tr>
+						<th>备注</th>
+						<td colspan="2">
+							<textarea style="background:white;border-radius:5px;width:95%"></textarea>
+						</td>
+					</tr>
+					</table>
+		            </div>
+		        </li>
+		    </ul>
+			</div>
+			<ul class="mui-table-view" style="width:100%;position: fixed;bottom:0;">
+				<li class="mui-table-view-cell" style="text-align: center;">
+					<button type="button" style="background: dodgerblue;border:0;color: white;">立即发布</button>
+				</li>
+			</ul>
+    		
+		</div>
+		<script type="text/javascript">
+			
+			var year;
+			var month;
+			var day;
+			
+			// 时间选择器（日期）
+			function datepicker(obj){
+				var dtpicker = new mui.DtPicker({
+				    type: "date",//设置日历初始视图模式 
+				    beginDate: new Date(2000, 01, 01),//设置开始日期 
+				    endDate: new Date(year, month, day),//设置结束日期 
+					    
+					}) 
+					dtpicker.setSelectedValue(get_date())
+					dtpicker.show(function(e) {
+					    obj.innerHTML = e; 
+						user_birth = e;
+					}) 
+				}
+			
+			
+			mui.ready(function(){
+				document.getElementById("date_picker").innerHTML = get_date()
+				var date_list = document.getElementsByClassName("date_time")
+				for(var i =0;i<date_list.length;i++){
+					date_list[i].innerHTML = get_date()
+				}
+			})
+			
+			
+			// 获取时间
+			function get_date(){
+				var date = new Date();
+				year =  date.getFullYear();
+				month = date.getMonth()+1;
+				day = date.getDate();
+				if(month<10){
+					month = "0"+month;
+				}
+				if(day<10){
+					day = "0"+day;
+				}
+				var current_date = year+"-"+month+"-"+day;
+				return current_date;
+			}
+			
+			// 切换发布形式
+			function release_type(id){
+				document.getElementById("unify").style.color = "grey"
+				document.getElementById("assign").style.color = "grey"
+				document.getElementById(id).style.color = "orange";
+				if(id == "assign"){
+					document.getElementById("assign_content").removeAttribute("hidden")
+					document.getElementById("unify_content").setAttribute("hidden","hidden")
+				}else{
+					document.getElementById("unify_content").removeAttribute("hidden")
+					document.getElementById("assign_content").setAttribute("hidden","hidden")
+				}
+			}
+			
+			
+			
+		</script>
+		<style type="text/css">
+			.mui-collapse-content div{
+				padding:10px 0;
+			}
+			
+			
+		</style>
+	</body>
+
+</html>

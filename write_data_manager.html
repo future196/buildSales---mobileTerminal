@@ -1,0 +1,149 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<script src="js/mui.min.js"></script>
+		
+		<script src="js/jquery.js"></script>
+		<script src="js/city-picker.data.js"></script>
+		<script src="js/city-picker.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/city-picker.css" />
+<script src="js/template.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">录入数据</h1>
+		</header>
+		<div class="mui-content">
+			<form class="mui-input-group" onsubmit="return form_check()">
+				<div class="mui-input-row">
+					<label>成交数量</label>
+					<input type="number" id="name" class="mui-input-clear" placeholder="请输入成交数量">
+				</div>
+				<div class="mui-input-row">
+					<label>派单/张</label>
+					<input type="number" id="name" class="mui-input-clear" placeholder="请输入派单张数">
+				</div>
+				<div class="mui-input-row">
+					<label>call客/台</label>
+					<input type="number" id="name" class="mui-input-clear" placeholder="请输入call客数量">
+				</div>
+				<div class="mui-input-row">
+					<label>收客/台</label>
+					<input type="number" id="name" oninput="order_number(this)" class="mui-input-clear" placeholder="请输入收客数量">
+				</div>
+				<div style="height: 100px;" class="mui-input-row">
+					<label>备注信息</label>
+					<textarea id="need-describe" type="text" rows="3" class="mui-input-clear" placeholder="请输入备注信息"></textarea>
+				</div>
+				
+
+				<!--template循环列表插入位置-->
+				<div id="templatelist"></div>
+
+				<!--template.js模板引擎作用区-->
+				<script type="text/html" id="template1">
+					<% for(var i = 0;i<number;i++){ %>
+					<div style="background:lightgrey;padding:10px;border-bottom: 5px solid white;">
+						<table border="0" style="text-align: center;table-layout:fixed;" width="100%" cellspacing="" cellpadding="">
+							<tr>
+								<td>姓名</td>
+								<td colspan="2">
+									<input type="text" style="background:white;border-radius:5px;margin:1px">
+								</td>
+							</tr>
+							<tr>
+								<td>电话</td>
+								<td colspan="2">
+									<input type="number" style="background:white;border-radius:5px;margin:1px">
+								</td>
+							</tr>
+							<tr>
+								<td>房屋类型</td>
+								<td colspan="2">
+									<select name="" style="margin-bottom: 2px;">
+										<option value="">公寓</option>
+										<option value="">公寓2</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<td>所住地区</td>
+								<td colspan="2" style="position: relative;">
+									<input class="picker" style="background:white;width:100%;" readonly type="text" data-toggle="city-picker">
+								</td>
+							</tr>
+							<tr>
+								<td>同比较楼盘</td>
+								<td colspan="2">
+									<select name="">
+										<option value="">公寓</option>
+										<option value="">公寓2</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<td>交通工具</td>
+								<td colspan="2">
+									<select name="">
+										<option value="">公寓</option>
+										<option value="">公寓2</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<td>付款方式</td>
+								<td colspan="2">
+									<select name="">
+										<option value="">公寓</option>
+										<option value="">公寓2</option>
+									</select>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<%}%>
+				</script>
+
+				<div class="button">
+					<button style="width:50%;background: dodgerblue;border:0;color:white;margin:20px 25%" type="submit" id="save">确认录入</button>
+				</div>
+			</form>
+		</div>
+		<script type="text/javascript">
+			function order_number(obj) {
+				render(obj.value)
+			}
+
+			// 模板渲染
+			function render(number) {
+				var template1 = document.getElementById('template1').innerHTML;
+				document.getElementById('templatelist').innerHTML = template(template1, {
+					number: number
+				});
+				$('.picker').citypicker();
+			}
+			
+				
+			
+		</script>
+		<style type="text/css">
+			select{
+				margin-bottom: 1px;border-radius: 5px;
+			}
+			.picker{
+				padding:30px;
+			}
+		</style>
+	</body>
+
+</html>

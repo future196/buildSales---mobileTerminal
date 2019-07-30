@@ -1,0 +1,273 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/mui.picker.css" />
+		<link rel="stylesheet" type="text/css" href="css/mui.poppicker.css" />
+		<link rel="stylesheet" type="text/css" href="css/mui.dtpicker.css" />
+		
+		<script src="js/mui.min.js"></script>
+		<script src="js/mui.picker.js"></script>
+		<script src="js/mui.poppicker.js"></script>
+		<script src="js/mui.dtpicker.js"></script>
+		<script src="js/jquery.js"></script>
+		<!-- jQuery is required -->
+		<script src="js/city-picker.data.js"></script>
+		<script src="js/city-picker.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/city-picker.css" />
+		<script type="text/javascript">
+			mui.init()
+			
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">搜索</h1>
+		</header>
+
+		<div class="mui-content">
+			<!--<div class="city-picker">-->
+				<!--<input readonly type="text" data-toggle="city-picker">-->
+			<!--</div>-->
+			
+			<div class="search_input">
+				<input type="text" placeholder="客户姓名/电话" />
+				<button>搜索</button>
+			</div>
+			<div class="screen">
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right">
+							房屋类型
+							<select name="">
+								<option value="">公寓</option>
+								<option value="">公寓2</option>
+							</select>
+						</a>
+					</li>
+					<!--<li class="mui-table-view-cell">
+						<div class="mui-navigate-right" style="display: flex;">
+							所住地区
+							
+						</div>
+						
+					</li>
+					<li class="mui-table-view-cell">
+						<!--<input style="width:50%;" readonly type="text" data-toggle="city-picker">-->
+						
+					<!--</li>-->
+					
+					
+					<div class="city-picker" style="display: flex;padding:10px 0;position:relative;">
+						<span style="flex:1;padding:10px;">所在地区</span>
+						<input style="border:0;flex:3" readonly type="text" data-toggle="city-picker">
+					</div>
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right">
+							同比较楼盘
+							<select name="">
+								<option value="">公寓</option>
+								<option value="">公寓2</option>
+							</select>
+						</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right">
+							交通工具
+							<select name="">
+								<option value="">公寓</option>
+								<option value="">公寓2</option>
+							</select>
+						</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right">
+							付款方式
+							<select name="">
+								<option value="">公寓</option>
+								<option value="">公寓2</option>
+							</select>
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="result">
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell mui-media">
+						<a href="javascript:;">
+							<div style="float:left;border-radius:50px;background:green;width:40px;height: 40px;text-align: center;color:white;font-size:1.2em;padding:8px;">跟</div>
+							<div class="mui-media-body" style="padding-left: 5px;">
+								<span style="padding-right:20px;">姓名:张三</span>
+								<button style="float:right;" id="1" onclick="edit(this)" class="mui-btn">编辑</button>
+								<div style="padding-right:5px;">电话:1234567890</div>
+								<div style="padding-right:5px;">房屋类型:公寓</div>
+								<div style="padding-right:5px;">所住地区:广东省广州市番禺区大石街道</div>
+								<div style="padding-right:5px;">同比较楼盘:什么鬼</div>
+								<div style="padding-right:5px;">交通工具:地铁</div>
+								<div style="padding-right:5px;">付款方式:全款</div>
+								<p>最近编辑日期：2019-03-20</p>
+								<p class='mui-ellipsis'>备注：
+									<font id="content_1">这是备注信息备注,这是备注信息备注,这是备注信息备注,这是备注信息</font>
+								</p>
+							</div>
+						</a>
+					</li>
+					<textarea hidden="hidden" id="edit_1"></textarea>
+				</ul>
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell mui-media">
+						<a href="javascript:;">
+							<div style="float:left;border-radius:50px;background:green;width:40px;height: 40px;text-align: center;color:white;font-size:1.2em;padding:8px;">跟</div>
+							<div class="mui-media-body" style="padding-left: 5px;">
+								<span>姓名：李四</span>
+								<button style="float:right;" id="2" onclick="edit(this)" class="mui-btn">编辑</button>
+								<div style="padding-right:5px;">电话：1234567890</div>
+								<div style="padding-right:5px;">房屋类型:公寓</div>
+								<div style="padding-right:5px;">所住地区:广东省广州市番禺区大石街道</div>
+								<div style="padding-right:5px;">同比较楼盘:什么鬼</div>
+								<div style="padding-right:5px;">交通工具:地铁</div>
+								<div style="padding-right:5px;">付款方式:全款</div>
+								<p>最近编辑日期：2019-03-20</p>
+								<p class='mui-ellipsis'>备注：
+									<font id="content_2">这是备注信息备注,这是备注信息备注,这是备注信息备注,这是备注信息</font>
+								</p>
+							</div>
+						</a>
+					</li>
+					<textarea hidden="hidden" id="edit_2"></textarea>
+				</ul>
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell mui-media">
+						<a href="javascript:;">
+							<div style="float:left;border-radius:50px;background:darkgrey;width:40px;height: 40px;text-align: center;color:white;font-size:1.2em;padding:8px;">跟</div>
+							<div class="mui-media-body" style="padding-left: 5px;">
+								<span>姓名：王五</span>
+								<button style="float:right;color:darkgrey" class="mui-btn">编辑</button>
+								<div style="padding-right:5px;">电话：1234567890</div>
+								<div style="padding-right:5px;">房屋类型:公寓</div>
+								<div style="padding-right:5px;">所住地区:广东省广州市番禺区大石街道</div>
+								<div style="padding-right:5px;">同比较楼盘:什么鬼</div>
+								<div style="padding-right:5px;">交通工具:地铁</div>
+								<div style="padding-right:5px;">付款方式:全款</div>
+								<p>最近编辑日期：2019-03-20</p>
+								<p class='mui-ellipsis'>备注：这是备注信息备注：这是备注信息备注：这是备注信息备注：这是备注信息</p>
+
+							</div>
+						</a>
+
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="bottom">
+			<div class="">
+				<img src="img/home.png" />
+				<div class="">
+					首页
+				</div>
+			</div>
+			<div class="">
+				<img src="img/search2.png" />
+				<div class="active">
+					搜索
+				</div>
+			</div>
+			<div class="">
+				<img src="img/mine.png" />
+				<div class="">
+					个人中心
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		
+	</script>
+	<style type="text/css">
+		
+		
+		select{
+			padding:0;margin:0;padding-left:10%;
+		}
+		
+		
+		
+		.mui-content {
+			margin-bottom: 100px;
+			;
+		}
+		
+		.result {
+			margin-top: 20px;
+		}
+		
+		.search_input {
+			display: flex;
+			margin: 5vw;
+		}
+		
+		.search_input button {
+			height: 10vw;
+			width: 20vw;
+			background: dodgerblue;
+			color: white;
+			border: 0;
+			border-radius: 0;
+		}
+		
+		.search_input input {
+			height: 10vw;
+			border-radius: 0;
+			border: 0;
+			border: 1px solid dodgerblue;
+			margin: 0;
+		}
+		
+		.selected {
+			color: grey;
+			float: right;
+			margin-right: 30px;
+		}
+		
+		.mui-table-view-cell {
+			padding: 13px;
+		}
+		
+		.bottom {
+			position: fixed;
+			bottom: 0;
+			width: 100%;
+			height:50px;
+			display: flex;
+			background: white;
+			padding: 5px;
+			font-size: 0.7em;
+			border-top: 1px solid lightgrey;
+			padding-top:8px;
+		}
+		
+		.bottom div {
+			flex: 1;
+			text-align: center;
+			background: white;
+			position: relative;
+			top:-5px;
+		}
+		
+		.bottom div img {
+			width: 25px;
+			height: 25px;
+			text-align: center;
+		}
+		
+		.active {
+			color: dodgerblue;
+		}
+	</style>
+</html>

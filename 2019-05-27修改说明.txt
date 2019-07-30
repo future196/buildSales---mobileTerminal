@@ -1,0 +1,17 @@
+新增页面
+search.html
+mine.html
+
+修改页面（都是加了房屋类型、地区那些字段）
+sales_order.html
+order_salespersion.html
+order_manager.html
+order_arrange.html
+dataout_manager.html
+writing_data_manager.html
+writing_data_sales.html
+
+
+修改了(加了底部导航，中部模糊搜索按钮，顶部图片改成了轮播图)
+index_sales2.html
+index_manager2.html

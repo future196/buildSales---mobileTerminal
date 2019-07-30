@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">历史任务</h1>
+		</header>
+		<div class="mui-content">
+		    <ul class="mui-table-view">
+			    <li class="mui-table-view-cell mui-media">
+			        <a href="javascript:;">     	
+			            <div class="mui-media-body" style="padding-left: 5px;">
+			            	<div>
+			            		<span style="padding-right:10%">成交数：2</span>
+			                	<span>派单数/张：100</span>  
+			            	</div>
+			                <div>
+			            		<span style="padding-right:10%">call客/台：50</span>
+			                	<span>收客/台：5</span>  
+			            	</div>
+			                <p>
+			                	<span style="padding-right:10%">任务日期：2019-03-20</span>
+			                	<span>发布形式：统一发布</span>
+			                </p>
+			                <p class='mui-ellipsis'>备注：这是备注信息备注：这是备注信息备注：这是备注信息备注：这是备注信息</p>  
+			            </div>
+			        </a>
+			    </li>	    
+			</ul>
+			<ul class="mui-table-view">
+			    <li class="mui-table-view-cell mui-media">
+			        <a href="javascript:;">     	
+			            <div class="mui-media-body" style="padding-left: 5px;">
+			            	<div>
+			            		<span style="padding-right:10%">成交数：2</span>
+			                	<span>派单数/张：100</span>  
+			            	</div>
+			                <div>
+			            		<span style="padding-right:10%">call客/台：50</span>
+			                	<span>收客/台：5</span>  
+			            	</div>
+			                <p>
+			                	<span style="padding-right:10%">任务日期：2019-03-19</span>
+			                	<span>发布形式：统一发布</span>
+			                </p>
+			                <p class='mui-ellipsis'>备注：这是备注信息备注：这是备注信息备注：这是备注信息备注：这是备注信息</p>  
+			            </div>
+			        </a>
+			    </li>	    
+			</ul>
+			<ul class="mui-table-view" id="1" onclick="show_sales(this.id)">
+			    <li class="mui-table-view-cell mui-media">
+			        <a href="javascript:;">     	
+			            <div class="mui-media-body" style="padding-left: 5px;">
+			            	<div><font id="text_1">可展开</font>（2位销售员）</div>
+			                <p>
+			                	<span style="padding-right:10%">任务日期：2019-03-18</span>
+			                	<span>发布形式：<font style="color:red">指定发布</font></span>
+			                </p>
+			                <p class='mui-ellipsis'>备注：这是备注信息备注：这是备注信息备注：这是备注信息备注：这是备注信息</p>  
+			            </div>
+			        </a>
+			    </li>
+			    <ul class="mui-table-view" hidden="hidden" id="content_1">
+			    <li class="mui-table-view-cell mui-media" style="background:#F2F2F2;">
+			        <a href="javascript:;">     	
+			            <div class="mui-media-body" style="padding-left: 5px;">
+			            	<div>销售员：张三</div>
+			                <p>
+			                	<span style="padding-right:10%">成交数：2</span>
+			                	<span>派单数 / 张：5</span>
+			                </p>
+			                <p>
+			                	<span style="padding-right:10%">call客 / 台：50</span>
+			                	<span>收 / 台：5</span>
+			                </p>
+			                <p class='mui-ellipsis'>备注：这是备注信息备注：这是备注信息备注：这是备注信息备注：这是备注信息</p>  
+			            </div>
+			        </a>
+			    </li>	
+			    <li class="mui-table-view-cell mui-media" style="background:#F2F2F2;">
+			        <a href="javascript:;">     	
+			            <div class="mui-media-body" style="padding-left: 5px;">
+			            	<div>销售员：李四</div>
+			                <p>
+			                	<span style="padding-right:10%">成交数：2</span>
+			                	<span>派单数 / 张：5</span>
+			                </p>
+			                <p>
+			                	<span style="padding-right:10%">call客 / 台：50</span>
+			                	<span>收 / 台：5</span>
+			                </p>
+			                <p class='mui-ellipsis'>备注：这是备注信息备注：这是备注信息备注：这是备注信息备注：这是备注信息</p>  
+			            </div>
+			        </a>
+			    </li>
+			</ul>
+			</ul>
+			
+		</div>
+		<script type="text/javascript">
+			// 展开点击的指定发布的销售员
+			function show_sales(id){
+				var text_obj = document.getElementById("text_"+id).innerHTML
+				if(text_obj == "可展开"){
+					document.getElementById("text_"+id).innerHTML = "已展开"
+					document.getElementById("content_"+id).removeAttribute("hidden")
+				}else{
+					document.getElementById("text_"+id).innerHTML = "可展开"
+					document.getElementById("content_"+id).setAttribute("hidden","hidden")
+
+				}
+			}
+		</script>
+	</body>
+
+</html>

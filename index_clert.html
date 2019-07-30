@@ -1,0 +1,180 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<script src="js/mui.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/mui.picker.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mui.poppicker.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mui.dtpicker.css"/>
+	    <script src="js/mui.picker.js"></script>
+		<script src="js/mui.poppicker.js"></script>
+		<script src="js/mui.dtpicker.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</head>
+
+	<body>
+		<div class="mui-content">
+	    	<div class="top_info">
+		   		<span>姓名：王五</span>
+		   		<span style="float:right;">职位：文员</span>
+		 	</div>
+		 	<ul class="mui-table-view">
+		    <li class="mui-table-view-cell">
+		    	<div style="display: inline;">
+		    		<span>日期:</span>
+			    	<span style="background: lightgrey;">
+			    		<span id="date_picker" onclick="datepicker(this)">0000-00-00</span>
+			    	</span> 
+		    	</div> 
+		    	<div style="display: inline;float:right;">
+		    		<span>经理:</span>
+			    	<span style="background: lightgrey;">
+			    		<span id="date_picker" onclick="data_picker(this)">经理1</span>
+			    	</span>
+		    	</div>
+		    </li>
+		</ul>
+		<ul class="mui-table-view">
+		    <li class="mui-table-view-cell mui-media">
+		        <a href="javascript:;">
+		        	
+		            <div class="mui-media-body" style="padding-left: 5px;">
+		                <div>销售员：张三</div>
+		                <p>
+		                	<span style="padding-right:10%">成交数量：2</span>
+	                		<span>派单/张：200</span>	
+		                </p>
+	                	<p >
+	                		<span style="padding-right:10%">call客/台：50</span>
+		                	<span>收客/台：5</span>
+	                	</p>	                
+		                
+		                <p class='mui-ellipsis'>备注：这是备注信息备注：这是备注信息备注：这是备注信息备注：这是备注信息</p>
+		                
+		            </div>
+		        </a>
+		        
+		    </li>	
+		    <li class="mui-table-view-cell mui-media">
+		        <a href="javascript:;">
+		        	
+		            <div class="mui-media-body" style="padding-left: 5px;">
+		                <div>销售员：李四</div>
+		                <p>
+		                	<span style="padding-right:10%">成交数量：2</span>
+	                		<span>派单/张：200</span>	
+		                </p>
+	                	<p >
+	                		<span style="padding-right:10%">call客/台：50</span>
+		                	<span>收客/台：5</span>
+	                	</p>	                
+		                
+		                <p class='mui-ellipsis'>备注：这是备注信息备注：这是备注信息备注：这是备注信息备注：这是备注信息</p>
+		                
+		            </div>
+		        </a>
+		        
+		    </li>
+		    <li class="mui-table-view-cell mui-media">
+		        <a href="javascript:;">
+		        	
+		            <div class="mui-media-body" style="padding-left: 5px;">
+		                <div>销售员：王五</div>
+		                <p>
+		                	<span style="padding-right:10%">成交数量：2</span>
+	                		<span>派单/张：200</span>	
+		                </p>
+	                	<p >
+	                		<span style="padding-right:10%">call客/台：50</span>
+		                	<span>收客/台：5</span>
+	                	</p>	                
+		                
+		                <p class='mui-ellipsis'>备注：这是备注信息备注：这是备注信息备注：这是备注信息备注：这是备注信息</p>
+		                
+		            </div>
+		        </a>
+		        
+		    </li>
+		</ul>
+		<ul class="mui-table-view" style="width:100%;position: fixed;bottom:0;">
+			<li class="mui-table-view-cell" style="text-align: center;">
+				<button type="button" style="background: dodgerblue;border:0;color: white;">立即导出</button>
+			</li>
+		</ul>
+		</div>
+		<script type="text/javascript">
+			
+			var year;
+			var month;
+			var day;
+			
+			// 时间选择器（日期）
+			function datepicker(obj){
+				var dtpicker = new mui.DtPicker({
+				    type: "date",//设置日历初始视图模式 
+				    beginDate: new Date(2000, 01, 01),//设置开始日期 
+				    endDate: new Date(year, month-1, day),//设置结束日期 
+					    
+					}) 
+					dtpicker.setSelectedValue(get_date())
+					dtpicker.show(function(e) {
+					    obj.innerHTML = e; 
+						user_birth = e;
+					}) 
+				}
+			
+			// 初始化一个选择器
+			var picker = new mui.PopPicker();
+			// 给选择器设置内容
+			picker.setData([
+				{value:'1',text:'经理1'},
+				{value:'2',text:'经理2'},
+				{value:'3',text:'经理3'},
+				{value:'4',text:'经理4'},
+			]);
+			
+			
+			// 选择器(酒楼)
+			function data_picker(obj){
+				picker.show(function (selectItems) {		    
+			    obj.innerHTML = selectItems[0].text;
+			})
+			}
+			
+			
+			mui.ready(function(){
+				document.getElementById("date_picker").innerHTML = get_date()
+			})
+			
+			
+			// 获取时间
+			function get_date(){
+				var date = new Date();
+				year =  date.getFullYear();
+				month = date.getMonth()+1;
+				day = date.getDate();
+				if(month<10){
+					month = "0"+month;
+				}
+				if(day<10){
+					day = "0"+day;
+				}
+				var current_date = year+"-"+month+"-"+day;
+				return current_date;
+			}
+		</script>
+		 <style type="text/css">
+		 	.top_info{
+				margin:10px;
+				color: dodgerblue;
+			}
+		 </style>
+	</body>
+
+</html>

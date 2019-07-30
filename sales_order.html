@@ -1,0 +1,207 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<script src="js/mui.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/mui.picker.css" />
+		<link rel="stylesheet" type="text/css" href="css/mui.poppicker.css" />
+		<link rel="stylesheet" type="text/css" href="css/mui.dtpicker.css" />
+		<script src="js/mui.picker.js"></script>
+		<script src="js/mui.poppicker.js"></script>
+		<script src="js/mui.dtpicker.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">销售员的订单</h1>
+			<button type="button" style="float:right;margin:0 2px;" onclick="auth_order(this)" class="mui-btn mui-btn-warning">审核</button>
+			<button type="button" style="float:right;" onclick="end_order(this)" class="mui-btn mui-btn-warning">终止</button>
+		</header>
+		<div class="mui-content">
+			<ul class="mui-table-view" onclick="block_select(1)">
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+
+						<div class="mui-media-body" style="padding-left: 5px;">
+							<span>姓名：王五</span>
+							<div style="float:right;border-radius:50px;background:green;width:40px;height: 40px;text-align: center;color:white;font-size:1.2em;padding:8px;">跟</div>
+							<span style="float:right;padding-right:5px;">电话：1234567890</span>
+							<div style="padding-right:5px;color:grey;">房屋类型:公寓</div>
+							<div style="padding-right:5px;color:grey;">所住地区:广东省广州市番禺区大石街道</div>
+							<div style="padding-right:5px;color:grey;">同比较楼盘:什么鬼</div>
+							<div style="padding-right:5px;color:grey;">交通工具:地铁</div>
+							<div style="padding-right:5px;color:grey;">付款方式:全款</div>
+							<p>最近跟进日期：2019-03-20</p>
+							<div class="mui-checkbox" hidden="hidden" style="position: absolute;right:0;">
+								<input name="checkbox1" value="" id="1" type="checkbox" onfocus="this.click()" checked>
+							</div>
+							<p>销售员：小明</p>
+
+							<p class='mui-ellipsis'>备注：这是备注信息备注：这是备注信息备注：这是备注信息备注：这是备注信息</p>
+							<p>审核状态：已审核</p>
+						</div>
+					</a>
+
+				</li>
+			</ul>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+
+						<div class="mui-media-body" style="padding-left: 5px;">
+							<span>姓名：陈六</span>
+							<div style="float:right;border-radius:50px;background:orange;width:40px;height: 40px;text-align: center;color:white;font-size:1.2em;padding:8px;">终</div>
+							<span style="float:right;padding-right:5px;">电话：1234567890</span>
+							<div style="padding-right:5px;color:grey;">房屋类型:公寓</div>
+							<div style="padding-right:5px;color:grey;">所住地区:广东省广州市番禺区大石街道</div>
+							<div style="padding-right:5px;color:grey;">同比较楼盘:什么鬼</div>
+							<div style="padding-right:5px;color:grey;">交通工具:地铁</div>
+							<div style="padding-right:5px;color:grey;">付款方式:全款</div>
+
+							<p>最近跟进日期：2019-03-20</p>
+							<p>销售员：小明</p>
+							<p class='mui-ellipsis'>备注：这是备注信息备注：这是备注信息备注：这是备注信息备注：这是备注信息</p>
+							<p>审核状态：待审核</p>
+						</div>
+					</a>
+
+				</li>
+			</ul>
+			<ul class="mui-table-view" onclick="block_select(2)">
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+
+						<div class="mui-media-body" id="date_picker" style="padding-left: 5px;">
+							<span>姓名：张三</span>
+							<button style="float:right;" class="mui-btn mui-btn-primary btn-distribute" onclick="data_picker(this)">分配</button>
+							<span style="float:right;padding-right:5px;">电话：1234567890</span>
+							<div style="padding-right:5px;color:grey;">房屋类型:公寓</div>
+							<div style="padding-right:5px;color:grey;">所住地区:广东省广州市番禺区大石街道</div>
+							<div style="padding-right:5px;color:grey;">同比较楼盘:什么鬼</div>
+							<div style="padding-right:5px;color:grey;">交通工具:地铁</div>
+							<div style="padding-right:5px;color:grey;">付款方式:全款</div>
+
+							<p>最近跟进日期：2019-03-20</p>
+							<div class="mui-checkbox" hidden="hidden" style="position: absolute;right:0;">
+								<input name="checkbox1" value="" id="2" type="checkbox" onfocus="this.click()" checked>
+							</div>
+							<p>销售员：小明</p>
+							<p class='mui-ellipsis'>备注：这是备注信息备注：这是备注信息备注：这是备注信息备注：这是备注信息</p>
+							<p>审核状态：已审核</p>
+						</div>
+					</a>
+
+				</li>
+			</ul>
+			<ul class="mui-table-view" id="end_button" hidden="hidden" style="width:100%;position: fixed;bottom:0;">
+				<li class="mui-table-view-cell" style="text-align: center;">
+					<button type="button" style="background: dodgerblue;border:0;color: white;">确认终止</button>
+				</li>
+			</ul>
+			
+			<ul class="mui-table-view" id="auth_button" hidden="hidden" style="width:100%;position: fixed;bottom:0;">
+				<li class="mui-table-view-cell" style="text-align: center;">
+					<button type="button" style="background: dodgerblue;border:0;color: white;">通过</button>
+					<button type="button" style="background: dodgerblue;border:0;color: white;">不通过</button>
+				</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			// 初始化一个选择器
+			var picker = new mui.PopPicker();
+			// 给选择器设置内容
+			picker.setData([{
+					value: '1',
+					text: '张三'
+				},
+				{
+					value: '2',
+					text: '李四'
+				},
+				{
+					value: '3',
+					text: '王五'
+				},
+				{
+					value: '4',
+					text: '陈六'
+				},
+			]);
+
+			// 选择器(销售员)
+			function data_picker(obj) {
+				picker.show(function(selectItems) {
+					obj.innerHTML = selectItems[0].text;
+				})
+			}
+
+			// 终止按钮点击显示复选框
+			function end_order(obj) {
+				var check_boxs = document.getElementsByClassName("mui-checkbox")
+				var buttons = document.getElementsByClassName("btn-distribute")
+				if(check_boxs[0].hasAttribute("hidden")) {
+
+					for(var i = 0; i < check_boxs.length; i++) {
+						check_boxs[i].removeAttribute("hidden")
+					}
+					for(var i = 0; i < buttons.length; i++) {
+						buttons[i].setAttribute("disabled", "disabled")
+					}
+					obj.innerHTML = "取消"
+					document.getElementById("end_button").removeAttribute("hidden")
+				} else {
+					for(var i = 0; i < check_boxs.length; i++) {
+						check_boxs[i].setAttribute("hidden", "hidden")
+					}
+					for(var i = 0; i < buttons.length; i++) {
+						buttons[i].removeAttribute("disabled")
+					}
+					obj.innerHTML = "终止"
+					document.getElementById("end_button").setAttribute("hidden", "hidden")
+				}
+
+			}
+			
+			// 审核按钮点击显示复选框
+			function auth_order(obj) {
+				var check_boxs = document.getElementsByClassName("mui-checkbox")
+				var buttons = document.getElementsByClassName("btn-distribute")
+				if(check_boxs[0].hasAttribute("hidden")) {
+
+					for(var i = 0; i < check_boxs.length; i++) {
+						check_boxs[i].removeAttribute("hidden")
+					}
+					for(var i = 0; i < buttons.length; i++) {
+						buttons[i].setAttribute("disabled", "disabled")
+					}
+					obj.innerHTML = "取消"
+					document.getElementById("auth_button").removeAttribute("hidden")
+				} else {
+					for(var i = 0; i < check_boxs.length; i++) {
+						check_boxs[i].setAttribute("hidden", "hidden")
+					}
+					for(var i = 0; i < buttons.length; i++) {
+						buttons[i].removeAttribute("disabled")
+					}
+					obj.innerHTML = "审核"
+					document.getElementById("auth_button").setAttribute("hidden", "hidden")
+				}
+
+			}
+
+			// 列表点击选中复选框
+			function block_select(id) {
+				document.getElementById(id).click();
+			}
+		</script>
+	</body>
+
+</html>
